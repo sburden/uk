@@ -137,7 +137,8 @@ class Transform(object):
         self.wS_mat = np.kron( np.ones((M,1)), wS )
 
         # Pre-Cholesky weight
-        self.wF = self.N / (1.0+self.W0)
+        #self.wF = self.N / (1.0+self.W0)
+        self.wF = self.N / (1.0-self.W0) # Thanks to Kenich Shirakawa for fix!
 
         # Pre-allocate constant arrays for speed
         self.ones = np.ones((1, self.nS))
